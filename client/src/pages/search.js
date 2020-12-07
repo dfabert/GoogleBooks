@@ -3,21 +3,19 @@ import API from "../utils/API";
 import { Input, FormBtn } from "../components/form";
 
 function Search() {
-    const [books, setBooks] = useState([])
-    const [formObject, setFormObject] = useState({
-      query: ""
-    })
+    const [query, setQuery] = useState('');
 
   function handleInputChange(event) {
-    const { name, value } = event.target;
-    setFormObject({...formObject, [name]: value})
+      const { value } = event.target;
+      setQuery(value);
   };
 
   function handleFormSubmit(event) {
-    console.log(formObject.query);
+    console.log(query);
     event.preventDefault();
-    API.searchGoogleBooks(formObject.query)
-    };
+    API.searchGoogleBooks(query)
+    .then()
+  };
  
 
   return (
@@ -28,7 +26,7 @@ function Search() {
              onChange={handleInputChange}
              name="query"
              placeholder="Enter Your Search"
-             value={formObject.query}
+             value={query}
             />
             <FormBtn onClick={handleFormSubmit}>
              Submit Book
