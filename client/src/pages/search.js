@@ -49,6 +49,10 @@ function Search() {
                         <strong>
                           {book.volumeInfo.title}
                         </strong>
+                          {book.volumeInfo.authors}
+                          {book.volumeInfo.description}
+                          {book.volumeInfo.imageLinks.smallThumbnail}
+                          {book.volumeInfo.infoLink}
                     </ListItem>
                   );
                 })}
