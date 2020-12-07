@@ -18,12 +18,6 @@ function Search() {
     .then(res => setResults(res.data.items))
   };
 
-  function cl(event) {
-    event.preventDefault();
-    console.log(results);
-  };
- 
-
   return (
     <div>
         Search Page
@@ -36,9 +30,6 @@ function Search() {
             />
             <FormBtn onClick={handleFormSubmit}>
              Submit Book
-            </FormBtn>
-            <FormBtn onClick={cl}>
-                console log resutls
             </FormBtn>
         </form>
         {results.length ? (
