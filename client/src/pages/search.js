@@ -4,6 +4,7 @@ import { Input, FormBtn } from "../components/form";
 
 function Search() {
     const [query, setQuery] = useState('');
+    const [results, setResults] = useState('');
 
   function handleInputChange(event) {
       const { value } = event.target;
@@ -11,10 +12,14 @@ function Search() {
   };
 
   function handleFormSubmit(event) {
-    console.log(query);
     event.preventDefault();
     API.searchGoogleBooks(query)
-    .then()
+    .then(res => setResults(res.data.items))
+  };
+
+  function cl(event) {
+    event.preventDefault();
+    console.log(results);
   };
  
 
@@ -30,6 +35,9 @@ function Search() {
             />
             <FormBtn onClick={handleFormSubmit}>
              Submit Book
+            </FormBtn>
+            <FormBtn onClick={cl}>
+                console log resutls
             </FormBtn>
         </form>
     </div>    
