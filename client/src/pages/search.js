@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import API from "../utils/API";
+import { List, ListItem } from "../components/List";
 import { Input, FormBtn } from "../components/form";
 
 function Search() {
@@ -40,6 +41,22 @@ function Search() {
                 console log resutls
             </FormBtn>
         </form>
+        {results.length ? (
+              <List>
+                {results.map(book => {
+                  return (
+                    <ListItem key={book._id}>
+                        <strong>
+                          {book.volumeInfo.title}
+                        </strong>
+                    </ListItem>
+                  );
+                })}
+              </List>
+            ) : (
+              <h3>No Results to Display</h3>
+            )}
+
     </div>    
   );
 }
