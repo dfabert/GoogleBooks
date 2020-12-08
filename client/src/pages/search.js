@@ -29,9 +29,7 @@ function Search() {
         image: bookData[3],
         link: bookData[4]
     })
-
-  }
-
+  };
     return (
     <div>
         Search Page
@@ -77,7 +75,6 @@ function Search() {
             ) : (
               <h3>No Results to Display</h3>
             )}
-
     </div>    
   );
 }
