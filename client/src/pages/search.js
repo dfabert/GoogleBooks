@@ -21,6 +21,10 @@ function Search() {
     .then(res => setResults(res.data.items))
   };
 
+  function saveBook(id) {
+    console.log('saving book ' + id);
+  }
+
     return (
     <div>
         Search Page
@@ -31,7 +35,7 @@ function Search() {
              placeholder="Enter Your Search"
              value={query}
             />
-            <FormBtn style={{float: 'left'}} onClick={handleFormSubmit}>
+            <FormBtn onClick={handleFormSubmit}>
              Submit Book
             </FormBtn>
         </form>
@@ -39,7 +43,7 @@ function Search() {
               <div>
                 {results.map(book => {
                   return (
-                    <Card key={book._id}>
+                    <Card key={book.id}>
                     <Card.Header>{book.volumeInfo.title}</Card.Header>
                       <Row>
                         <Col md='auto'>
@@ -50,6 +54,7 @@ function Search() {
                                 <Card.Text>By:  <i>{book.volumeInfo.authors}</i></Card.Text>
                                 <Card.Text>{book.volumeInfo.description}</Card.Text>
                                 <Button variant="primary" href = {book.volumeInfo.infoLink}>More Information</Button>
+                                <Button variant="success" onClick={() => saveBook(book.id)}>Save To Reading List</Button>
                             </Card.Body>
                         </Col>
                       </Row>
