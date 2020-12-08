@@ -22,6 +22,11 @@ function Search() {
   };
 
   function saveBook(bookData) {
+    console.log(bookData);
+    let authors = bookData[1].join(', ');
+    console.log(authors);
+    bookData[1] = authors;
+
     API.saveBook({
         title: bookData[0],
         author: bookData[1],
@@ -29,6 +34,7 @@ function Search() {
         image: bookData[3],
         link: bookData[4]
     })
+      .catch(err => console.log(err));
   };
     return (
     <div>
