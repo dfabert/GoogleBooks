@@ -21,8 +21,15 @@ function Search() {
     .then(res => setResults(res.data.items))
   };
 
-  function saveBook(id) {
-    console.log('saving book ' + id);
+  function saveBook(bookData) {
+    API.saveBook({
+        title: bookData[0],
+        author: bookData[1],
+        description: bookData[2],
+        image: bookData[3],
+        link: bookData[4]
+    })
+
   }
 
     return (
@@ -42,8 +49,13 @@ function Search() {
         {results.length ? (
               <div>
                 {results.map(book => {
+                  let bookData =    [book.volumeInfo.title,
+                                     book.volumeInfo.authors,
+                                     book.volumeInfo.description,
+                                     book.volumeInfo.imageLinks.smallThumbnail,
+                                     book.volumeInfo.infoLink];
                   return (
-                    <Card key={book.id}>
+                    <Card key={bookData}>
                     <Card.Header>{book.volumeInfo.title}</Card.Header>
                       <Row>
                         <Col md='auto'>
@@ -54,7 +66,7 @@ function Search() {
                                 <Card.Text>By:  <i>{book.volumeInfo.authors}</i></Card.Text>
                                 <Card.Text>{book.volumeInfo.description}</Card.Text>
                                 <Button variant="primary" href = {book.volumeInfo.infoLink}>More Information</Button>
-                                <Button variant="success" onClick={() => saveBook(book.id)}>Save To Reading List</Button>
+                                <Button variant="success" onClick={() => saveBook(bookData)}>Save To Reading List</Button>
                             </Card.Body>
                         </Col>
                       </Row>
