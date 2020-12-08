@@ -28,16 +28,16 @@ function Saved() {
           {books.map(book => {
           return (
           <Card>
-           <Card.Header>{book.volumeInfo.title}</Card.Header>
+           <Card.Header>{book.title}</Card.Header>
             <Row>
              <Col md='auto'>
-              <Card.Img style={{width: '60px'}} variant="top" src={book.volumeInfo.imageLinks.smallThumbnail} />
+              <Card.Img style={{width: '60px'}} variant="top" src={book.image} />
              </Col>
              <Col>
                <Card.Body>
-                 <Card.Text>By:  <i>{book.volumeInfo.authors}</i></Card.Text>
-                 <Card.Text>{book.volumeInfo.description}</Card.Text>
-                 <Button variant="primary" href = {book.volumeInfo.infoLink}>More Information</Button>
+                 <Card.Text>By:  <i>{book.authors}</i></Card.Text>
+                 <Card.Text>{book.description}</Card.Text>
+                 <Button variant="primary" href = {book.infoLink}>More Information</Button>
                </Card.Body>
               </Col>
             </Row>
