@@ -35,7 +35,7 @@ function Saved() {
              </Col>
              <Col>
                <Card.Body>
-                 <Card.Text>By:  <i>{book.authors}</i></Card.Text>
+                 <Card.Text>By:  <i>{book.author}</i></Card.Text>
                  <Card.Text>{book.description}</Card.Text>
                  <Button variant="primary" href = {book.infoLink}>More Information</Button>
                </Card.Body>
