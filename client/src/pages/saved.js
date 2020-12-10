@@ -20,6 +20,12 @@ function Saved() {
       .catch(err => console.log(err));
   };
 
+  function deleteBook(id) {
+    API.deleteBook(id)
+      .then(res => loadBooks())
+      .catch(err => console.log(err));
+  }
+
   return (
     <div>
       <h1>Books On My List</h1>
@@ -38,6 +44,7 @@ function Saved() {
                  <Card.Text>By:  <i>{book.author}</i></Card.Text>
                  <Card.Text>{book.description}</Card.Text>
                  <Button variant="primary" href = {book.infoLink}>More Information</Button>
+                 <Button variant ="danger" onClick={() => deleteBook(book._id)}>Delete From List</Button>
                </Card.Body>
               </Col>
             </Row>

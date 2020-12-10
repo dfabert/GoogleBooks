@@ -47,7 +47,7 @@ function Search() {
              value={query}
             />
             <FormBtn onClick={handleFormSubmit}>
-             Submit Book
+             Search
             </FormBtn>
         </form>
         {results.length ? (
